@@ -2,6 +2,7 @@
 
 use BEAR\Sunday\Extension\Application\AppInterface;
 use MyVendor\MyProject\Injector;
+use MyVendor\MyProject\Resource\Page\Index;
 
 require dirname(__DIR__) . '/autoload.php';
 
@@ -9,6 +10,8 @@ $compile = static function (string $context): void {
     Injector::getInstance($context)->getInstance(AppInterface::class);
 };
 $compile('app');
+
+//Injector::getInstance('app')->getInstance(Index::class); // ランタイムでAOPファイルが作成される
 $compile('prod-app');
 
 
