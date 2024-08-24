@@ -13,7 +13,7 @@ $compile('prod-app');
 
 
 assert(NumOfAopFiles(('prod-app')) > 0,  'No AOP File!');
-//assert(NumOfAopFiles(('app')) > 0,  'No AOP File!');
+assert(NumOfAopFiles(('app')) > 0,  'No AOP File!');
 
 /** $contextのAOPファイルの数  */
 function NumOfAopFiles(string $context): int
