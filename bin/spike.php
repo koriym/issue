@@ -11,4 +11,14 @@ $compile = static function (string $context): void {
 $compile('app');
 $compile('prod-app');
 
-assert(file_exists(dirname(__DIR__) . '/var/tmp/prod-app/di/-BEAR_RepositoryModule_Annotation_Commands.php'));
+
+assert(NumOfAopFiles(('prod-app')) > 0,  'No AOP File!');
+//assert(NumOfAopFiles(('app')) > 0,  'No AOP File!');
+
+/** $contextのAOPファイルの数  */
+function NumOfAopFiles(string $context): int
+{
+    return count(
+        glob(dirname(__DIR__) . "/var/tmp/{$context}/di/*[0-9].php")
+    );
+}
