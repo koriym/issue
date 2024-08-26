@@ -13,10 +13,11 @@ $compile('app');
 
 //Injector::getInstance('app')->getInstance(Index::class); // ランタイムでAOPファイルが作成される
 $compile('prod-app');
+$compile('prod-hal-app');
 
 
 assert(NumOfAopFiles(('prod-app')) > 0,  'No AOP File!');
-assert(NumOfAopFiles(('app')) > 0,  'No AOP File!');
+assert(NumOfAopFiles(('prod-hal-app')) > 0,  'No AOP File!');
 
 /** $contextのAOPファイルの数  */
 function NumOfAopFiles(string $context): int
